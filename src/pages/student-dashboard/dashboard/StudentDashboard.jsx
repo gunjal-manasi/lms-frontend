@@ -1,3 +1,4 @@
+// StudentDashboard.jsx
 import React, { useState, useEffect } from 'react';
 import './StudentDashboard.css';
 
@@ -36,7 +37,6 @@ const StudentDashboard = () => {
 
       if (data && data.name) {
         setSelectedInstructor(data.name);
-        console.log(`***********************${data.name}********************************`);
       } else {
         setSelectedInstructor('Instructor not found');
       }
@@ -51,10 +51,10 @@ const StudentDashboard = () => {
   const handleLearnClick = () => {
     if (!selectedCourseId) {
       alert('Please select a course first!');
-    } else {
-      alert(`Starting learning for course ID: ${selectedCourseId}`);
-      // Redirect or perform learning logic here
+      return;
     }
+    // Open new window/tab with courseId param
+    window.open(`/lessons.html?courseId=${selectedCourseId}`, '_blank');
   };
 
   return (

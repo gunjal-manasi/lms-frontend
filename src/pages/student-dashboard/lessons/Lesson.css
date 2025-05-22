@@ -1,0 +1,84 @@
+/* Lesson.css */
+
+.lesson-container {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+}
+
+.lesson-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  color: #1e40af;
+  border-bottom: 2px solid #1e40af;
+  padding-bottom: 0.5rem;
+}
+
+.lesson-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lesson-item {
+  background-color: #f9f9ff;
+  border-left: 6px solid #3b82f6;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+}
+
+.lesson-item:hover {
+  background-color: #e0edff;
+  transform: scale(1.01);
+}
+
+.lesson-item h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #1d4ed8;
+  font-size: 1.4rem;
+}
+
+.lesson-item p {
+  color: #444;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.lesson-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.lesson-link {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background-color: #1d4ed8;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.lesson-link:hover {
+  background-color: #2563eb;
+}
+
+.lesson-container.error {
+  color: #b91c1c;
+  background: #fee2e2;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 8px;
+  font-weight: 600;
+}

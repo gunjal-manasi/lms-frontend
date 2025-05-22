@@ -1,0 +1,85 @@
+/* StudentDashboard.css */
+
+.dashboard-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px 25px;
+  background-color: #f5f8fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2c3e50;
+}
+
+.dropdown-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-group label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #34495e;
+}
+
+select {
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1.8px solid #bdc3c7;
+  border-radius: 5px;
+  background-color: white;
+  transition: border-color 0.3s ease;
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none;
+  border-color: #2980b9;
+  box-shadow: 0 0 6px rgba(41, 128, 185, 0.4);
+}
+
+select:disabled {
+  background-color: #ecf0f1;
+  cursor: not-allowed;
+  color: #7f8c8d;
+}
+
+.button-group {
+  text-align: center;
+}
+
+.learn-button {
+  background-color: #2980b9;
+  color: white;
+  font-weight: 600;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 3px 8px rgba(41, 128, 185, 0.4);
+}
+
+.learn-button:hover {
+  background-color: #1c5980;
+}
+
+.learn-button:active {
+  background-color: #145374;
+  box-shadow: none;
+}
+
+p {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #7f8c8d;
+}

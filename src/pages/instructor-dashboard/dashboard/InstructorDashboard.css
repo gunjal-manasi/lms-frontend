@@ -47,3 +47,58 @@
 .course-form button:hover {
   background-color: #0056b3;
 }
+.show-courses-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #4449d1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.show-courses-button:hover {
+  background-color: #353aac;
+}
+
+.course-list {
+  margin-top: 1rem;
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.course-list ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.course-list li {
+  margin-bottom: 0.5rem;
+}
+.dropdown-container {
+  margin-top: 1rem;
+}
+
+#course-select {
+  padding: 0.5rem;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 300px;
+  font-size: 1rem;
+}
+.add-lesson-button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  font-size: 16px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition:  0.3s;
+}
+
+.add-lesson-button:hover {
+  background-color: #0056b3;
+}

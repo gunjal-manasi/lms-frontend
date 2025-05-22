@@ -7,14 +7,16 @@ const InstructorDashboard = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [instructorId, setInstructorId] = useState(null);
+  const [courses, setCourses] = useState([]);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState('');
   const navigate = useNavigate();
 
-  // Run once when component loads
   useEffect(() => {
     const token = localStorage.getItem('token');
 
     if (!token) {
-      navigate('/login'); // 👈 Don't alert before navigating
+      navigate('/login');
       return;
     }
 
@@ -22,23 +24,21 @@ const InstructorDashboard = () => {
       const decoded = jwtDecode(token);
 
       if (decoded.role !== 'instructor') {
-        navigate('/'); // 👈 Redirect non-instructors
+        navigate('/');
         return;
       }
 
-      setInstructorId(decoded.id); // ✅ Store user ID for course creation
-    } catch (error) {
+      setInstructorId(decoded.id);
+    } catch (error) { 
       console.error('Invalid token');
       localStorage.removeItem('token');
       navigate('/login');
     }
   }, [navigate]);
 
-  // Optional: Welcome message after login
   useEffect(() => {
     const justLoggedIn = sessionStorage.getItem('justLoggedIn');
     if (justLoggedIn) {
-      
       sessionStorage.removeItem('justLoggedIn');
     }
   }, []);
@@ -68,12 +68,24 @@ const InstructorDashboard = () => {
       const data = await response.json();
       alert(`✅ Course "${data.title}" created successfully!`);
 
-      // Reset form
       setTitle('');
       setDescription('');
     } catch (error) {
       console.error('Error:', error);
       alert('❌ Failed to create course.');
+    }
+  };
+
+  const handleShowCourses = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/courses');
+      if (!response.ok) throw new Error('Failed to fetch courses');
+      const data = await response.json();
+      setCourses(data);
+      setShowDropdown(true);
+    } catch (err) {
+      console.error('Error fetching courses:', err);
+      alert('❌ Failed to fetch courses.');
     }
   };
 
@@ -95,6 +107,39 @@ const InstructorDashboard = () => {
         />
         <button type="submit">Create Course</button>
       </form>
+
+      <hr />
+
+      <button onClick={handleShowCourses} className="show-courses-button">
+        📚 Show All Courses
+      </button>
+
+    {showDropdown && (
+  <div className="dropdown-container">
+    <label htmlFor="course-select"><strong>Select a Course:</strong></label>
+    <select
+      id="course-select"
+      value={selectedCourse}
+      onChange={(e) => setSelectedCourse(e.target.value)}
+    >
+      <option value="">-- Choose a course --</option>
+      {courses.map(course => (
+        <option key={course.id} value={course.id}>
+          {course.title}
+        </option>
+      ))}
+    </select>
+
+    {selectedCourse && (
+      <button
+        className="add-lesson-button"
+        onClick={() => navigate(`/lesson-add/${selectedCourse}`)}
+      >
+        ➕ Add Lesson
+      </button>
+    )}
+  </div>
+)}
     </div>
   );
 };
